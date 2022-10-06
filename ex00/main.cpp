@@ -2,10 +2,10 @@
 
 int  main () {
 
-	Zombie ruslan = Zombie("Ruslan ");
+	Zombie ruslan = Zombie("Ruslan");
 	ruslan.Announce();
-	Zombie Foo = Zombie("Foo ");
-	Foo.Announce();
+	// Zombie Foo = Zombie("Foo ");
+	// Foo.Announce();
 
 	std::cout << std::endl <<  COLOR_GREEN << "Now the new Zombie --> Tomato has been created from the function NewZombie()" << COLOR_DEFAULT << std::endl;
 
