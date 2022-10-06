@@ -1,8 +1,8 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie(void) {
+Zombie::Zombie() : _name("default") {
 
-	// std::cout << " Constructor was called" << std::endl;
+	std::cout << this->_name << " Constructor was called" << std::endl;
 }
 
 
