@@ -1,29 +1,27 @@
-NAME			=			zombiehorde
+NAME			=			weapon
 
 CC				=			c++
 
+CFLAGS			=			-Wall -Werror -Wextra --std=c++98 
+
 RM				=			rm -rf
 
-CFLAGS			=			-Wall -Wextra -Werror --std=c++98 -pedantic -g
+SRCS			=			main.cpp  Weapon.cpp HumanA.cpp HumanB.cpp 
 
-SRCS			=			main.cpp Zombie.cpp zombieHorde.cpp
-
-OBJSDIR			=			obj
+OBJSDIR			=			objs
 
 OBJS			=			$(SRCS:%.cpp=$(OBJSDIR)/%.o)
 
-
 all				:			$(NAME)
-
 
 $(NAME) : $(OBJS)
 		$(CC) $(OBJS) -o $(NAME)
 
 $(OBJSDIR)/%.o : %.cpp
 		mkdir -p '$(@D)'
-		$(CC) -c $(CFLAGS) $< -o $@
+		$(CC) $(CFLAGS) -c $< -o $@
 
-clean : 
+clean :
 		$(RM) $(OBJS)
 		$(RM) $(OBJSDIR)
 
@@ -31,8 +29,5 @@ fclean : clean
 		$(RM) $(NAME)
 
 re : fclean all
-
-val :
-	valgrind --leak-check=full -s ./$(NAME)
 
 .PHONY : clean fclean re
