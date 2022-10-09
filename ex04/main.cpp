@@ -1,14 +1,4 @@
-#include <iostream>
-#include <fstream>
-#include <string>
 #include "sed.hpp"
-#include <vector>
-
-
-
-
-
-
 
 int main (int argc, char **argv) {
 
