@@ -14,8 +14,6 @@ Sed::~Sed() {
 
 bool Sed::ReadInputFile(std::string filename) {
 
-	// std::ifstream ifs;
-
 	this->_ifs.open(filename.c_str(), std::ifstream::in);
 	if (!this->_ifs.is_open()) {
 		std::cerr << "error code : " << strerror(errno) << std::endl;
@@ -60,10 +58,11 @@ void Sed::WriteToOutputFile(std::string out_data) {
 
 	std::ofstream _ofs;
 	std::string OutputFilename = this->_filename;
-	OutputFilename.append(".replace");
+	if (this->_ifs.is_open())
+		OutputFilename.append(".replace");
 	_ofs.open(OutputFilename.c_str());
 	if (!_ofs.is_open())
-		std::cout << "output file isn't opened" << std::endl;
+		std::cout << "Output file isn't opened" << std::endl;
 	if (_ofs)
 		_ofs << out_data;
 	if (_ofs.bad())
